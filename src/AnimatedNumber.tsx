@@ -2,20 +2,37 @@ import { Fragment, useMemo } from "react";
 import "./AnimatedNumber.scss";
 import AnimatedNumberItem from "./AnimatedNumberItem";
 
-export interface AnimatedNumberProps {
+export interface AnimatedNumberProps
+  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   number: number;
   size: number;
   hasComma?: boolean;
   duration?: number;
 }
 
-const AnimatedNumber = ({ number, size, hasComma, duration }: AnimatedNumberProps) => {
+const AnimatedNumber = ({
+  number,
+  size,
+  hasComma,
+  duration,
+  style,
+  className,
+  ...restProps
+}: AnimatedNumberProps) => {
   const numberArray = useMemo(() => {
     return String(number).split("");
   }, [number]);
 
   return (
-    <div className="ReactAwesomeAnimatedNumber" style={{ height: size }}>
+    <div
+      className={
+        className
+          ? `ReactAwesomeAnimatedNumber ${className}`
+          : "ReactAwesomeAnimatedNumber"
+      }
+      style={{ ...style, height: size }}
+      {...restProps}
+    >
       {numberArray.map((number, index) => (
         <Fragment key={index}>
           {hasComma && (numberArray.length - index) % 3 === 0 && index !== 0 && (
