@@ -22,8 +22,8 @@ export const Default = Template.bind({});
 
 export const WithController = () => {
   const [number, setNumber] = useState(random(0, 100000000));
-  const [hasComma, setHasComma] = useState(false);
-  const [size, setSize] = useState(24);
+  const [hasComma, setHasComma] = useState(true);
+  const [size, setSize] = useState(28);
   const [duration, setDuration] = useState(200);
 
   const increaseNumber = useCallback(() => {
@@ -55,7 +55,8 @@ export const WithController = () => {
           Decrease Number
         </Button>
         <div style={{ display: "flex", alignItems: "center", marginTop: 10 }}>
-          <Switch onChange={(_, checked) => setHasComma(checked)} /> Comma
+          <Switch checked={hasComma} onChange={(_, checked) => setHasComma(checked)} />{" "}
+          Comma
         </div>
         <div style={{ marginTop: 10 }}>
           <TextField

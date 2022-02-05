@@ -33,34 +33,44 @@ const AnimatedNumber = ({
       style={{ ...style, height: size }}
       {...restProps}
     >
-      {numberArray.map((number, index) => (
-        <Fragment key={index}>
-          {hasComma && (numberArray.length - index) % 3 === 0 && index !== 0 && (
-            <div
-              className="ReactAwesomeAnimatedNumber__text"
-              style={{
-                fontSize: size,
-                height: size,
-              }}
-            >
-              ,
-            </div>
-          )}
-          {number === "-" ? (
-            <div
-              className="ReactAwesomeAnimatedNumber__text"
-              style={{
-                fontSize: size,
-                height: size,
-              }}
-            >
-              -
-            </div>
-          ) : (
-            <AnimatedNumberItem number={Number(number)} size={size} duration={duration} />
-          )}
-        </Fragment>
-      ))}
+      {numberArray.map((number, index) => {
+        const isMinus = numberArray[0] === "-";
+        return (
+          <Fragment key={index}>
+            {hasComma &&
+              (numberArray.length - (isMinus ? 3 : 0) - index) % 3 === 0 &&
+              index !== 0 &&
+              (isMinus ? index !== 1 : true) && (
+                <div
+                  className="ReactAwesomeAnimatedNumber__text"
+                  style={{
+                    fontSize: size,
+                    height: size,
+                  }}
+                >
+                  ,
+                </div>
+              )}
+            {number === "-" ? (
+              <div
+                className="ReactAwesomeAnimatedNumber__text"
+                style={{
+                  fontSize: size,
+                  height: size,
+                }}
+              >
+                -
+              </div>
+            ) : (
+              <AnimatedNumberItem
+                number={Number(number)}
+                size={size}
+                duration={duration}
+              />
+            )}
+          </Fragment>
+        );
+      })}
     </div>
   );
 };
