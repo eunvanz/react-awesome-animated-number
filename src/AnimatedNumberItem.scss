@@ -1,0 +1,13 @@
+.AnimatedNumberItem {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.AnimatedNumberItem__wrapper {
+  transition: transform ease-out 0.2s;
+}
+
+.AnimatedNumberItem__number {
+  line-height: 1;
+  text-align: center;
+}
