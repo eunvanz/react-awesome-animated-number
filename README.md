@@ -1,24 +1,22 @@
+# React awesome animated number
+
+A React component which animates numbers in elegant way
+
+![Example](https://user-images.githubusercontent.com/17351661/152665919-04500d26-78ff-48be-a505-914f2bf323e6.gif)
+
+# Live demo
+
+[Live demo](https://eunvanz.github.io/react-awesome-animated-number/iframe.html?id=components-animatednumber--with-controller&args=&viewMode=story)
+
+## Code
+
+```typescript
 import { useCallback, useState } from "react";
-import { Box, Button, Switch, TextField } from "@mui/material";
-import type { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Button, Box, Switch, TextField } from "@mui/material";
 import { random } from "lodash-es";
-import AnimatedNumber from "./AnimatedNumber";
 
-export default {
-  title: "components/AnimatedNumber",
-  component: AnimatedNumber,
-  args: {
-    value: 31290827,
-    size: 20,
-    duration: 200,
-  },
-} as ComponentMeta<typeof AnimatedNumber>;
-
-const Template: ComponentStory<typeof AnimatedNumber> = (args) => (
-  <AnimatedNumber {...args} />
-);
-
-export const Default = Template.bind({});
+import AnimatedNumber from "react-awesome-animated-number";
+import "react-awesome-animated-number/dist/index/css";
 
 export const WithController = () => {
   const [number, setNumber] = useState(random(0, 100000000));
@@ -94,3 +92,25 @@ export const WithController = () => {
     </>
   );
 };
+```
+
+# Props
+
+| name     | type      | required | default | description                 |
+| -------- | --------- | -------- | ------- | --------------------------- |
+| value    | `number`  | O        |         | Number to animate           |
+| size     | `number`  |          | `14`    | Font size of number in `px` |
+| hasComma | `boolean` |          | `false` | `true` for locale string    |
+| duration | `number`  |          | `200`   | Animation duration in `ms`  |
+
+# Contributions
+
+Contributions will be welcomed! Just make PRs to https://github.com/eunvanz/react-awesome-animated-number.
+
+# Have some Github contributions?
+
+You probably like my side project 👉 https://gitkemon.com/link/sl_68A
+
+# License
+
+react-awesome-animated-number is released under the MIT license.

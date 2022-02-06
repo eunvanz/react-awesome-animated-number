@@ -5,16 +5,16 @@ import "./AnimatedNumber.scss";
 export interface AnimatedNumberProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   value: number;
-  size: number;
+  size?: number;
   hasComma?: boolean;
   duration?: number;
 }
 
 const AnimatedNumber = ({
   value,
-  size,
-  hasComma,
-  duration,
+  size = 14,
+  hasComma = false,
+  duration = 200,
   style,
   className,
   ...restProps
