@@ -4,7 +4,7 @@
 
 A React component which animates numbers in elegant way
 
-![Example](https://user-images.githubusercontent.com/17351661/152665919-04500d26-78ff-48be-a505-914f2bf323e6.gif)
+![Example](https://user-images.githubusercontent.com/17351661/152667932-aa0206e4-0c3c-4ad9-a58e-13e6e8fa4890.gif)
 
 # Live demo
 
