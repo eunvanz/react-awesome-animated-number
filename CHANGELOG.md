@@ -1,7 +1,11 @@
-# 1.0.0 (2022-02-06)
+# 1.0.2 (2022-02-06)
 
-- release first version
+- support decimal
 
 # 1.0.1 (2022-02-06)
 
 - update README
+
+# 1.0.0 (2022-02-06)
+
+- release first version
