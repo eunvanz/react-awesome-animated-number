@@ -1,6 +1,6 @@
-import type { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useCallback, useState } from "react";
 import { Button, Switch, TextField } from "@mui/material";
+import type { ComponentStory, ComponentMeta } from "@storybook/react";
 import { random } from "lodash-es";
 import AnimatedNumber from "./AnimatedNumber";
 

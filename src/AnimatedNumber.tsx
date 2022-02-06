@@ -1,6 +1,6 @@
 import { Fragment, useMemo } from "react";
-import "./AnimatedNumber.scss";
 import AnimatedNumberItem from "./AnimatedNumberItem";
+import "./AnimatedNumber.scss";
 
 export interface AnimatedNumberProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
