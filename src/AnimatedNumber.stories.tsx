@@ -57,7 +57,7 @@ export const WithController = () => {
             sx={{ ml: 1 }}
             onClick={increaseNumber}
           >
-            Increase Number
+            Increase
           </Button>
           <Button
             variant="contained"
@@ -65,7 +65,7 @@ export const WithController = () => {
             sx={{ ml: 1 }}
             onClick={decreaseNumber}
           >
-            Decrease Number
+            Decrease
           </Button>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
