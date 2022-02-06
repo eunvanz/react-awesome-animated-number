@@ -98,12 +98,12 @@ export const WithController = () => {
 
 # Props
 
-| name     | type      | required | default | description                 |
-| -------- | --------- | -------- | ------- | --------------------------- |
-| value    | `number`  | O        |         | Number to animate           |
-| size     | `number`  |          | `14`    | Font size of number in `px` |
-| hasComma | `boolean` |          | `false` | `true` for locale string    |
-| duration | `number`  |          | `200`   | Animation duration in `ms`  |
+| name     |   type    | required | default | description                  |
+| -------- | :-------: | :------: | :-----: | ---------------------------- |
+| value    | `number`  |    O     |         | Number to animate            |
+| size     | `number`  |          |  `14`   | Font size of number in `px`  |
+| hasComma | `boolean` |          | `false` | Set `true` for locale string |
+| duration | `number`  |          | `2000`  | Animation duration in `ms`   |
 
 # Contributions
 
