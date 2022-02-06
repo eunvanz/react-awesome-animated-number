@@ -76,7 +76,6 @@
     "publish:major": "npm version major && git push"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.0",
-    "build": "^0.1.4"
+    "@babel/runtime": "^7.17.0"
   }
 }
