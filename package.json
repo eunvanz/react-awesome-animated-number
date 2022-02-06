@@ -14,7 +14,8 @@
     "number",
     "animated-number",
     "react",
-    "counter"
+    "counter",
+    "number-animation"
   ],
   "repository": {
     "type": "git",
