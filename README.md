@@ -1,5 +1,7 @@
 # React awesome animated number
 
+[![npm version](https://img.shields.io/npm/v/react-awesome-animated-number)](https://www.npmjs.com/package/react-awesome-animated-number) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-awesome-animated-number)](https://www.npmjs.com/package/react-awesome-animated-number) [![npm type definitions](https://img.shields.io/npm/types/react-awesome-animated-number)](https://www.npmjs.com/package/react-awesome-animated-number) [![npm](https://img.shields.io/npm/dt/react-awesome-animated-number)](https://www.npmjs.com/package/react-awesome-animated-number) [![GitHub](https://img.shields.io/github/license/eunvanz/react-awesome-animated-number)](https://github.com/eunvanz/react-awesome-animated-number/blob/master/LICENSE)
+
 A React component which animates numbers in elegant way
 
 ![Example](https://user-images.githubusercontent.com/17351661/152665919-04500d26-78ff-48be-a505-914f2bf323e6.gif)
