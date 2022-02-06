@@ -8,7 +8,7 @@ export default {
   title: "components/AnimatedNumber",
   component: AnimatedNumber,
   args: {
-    number: 31290827,
+    value: 31290827,
     size: 20,
     duration: 200,
   },
@@ -37,28 +37,42 @@ export const WithController = () => {
   return (
     <>
       <AnimatedNumber
-        number={number}
+        value={number}
         hasComma={hasComma}
         size={size}
         duration={duration}
       />
-      <div style={{ marginTop: 10 }}>
-        <Button variant="contained" size="small" onClick={increaseNumber}>
-          Increase Number
-        </Button>
-        <Button
-          variant="contained"
-          size="small"
-          style={{ marginLeft: 5 }}
-          onClick={decreaseNumber}
-        >
-          Decrease Number
-        </Button>
-        <div style={{ display: "flex", alignItems: "center", marginTop: 10 }}>
+      <div style={{ marginTop: 20 }}>
+        <div style={{ display: "flex", marginTop: 10 }}>
+          <TextField
+            type="number"
+            value={number}
+            size="small"
+            label="Value"
+            onChange={(e) => setNumber(Number(e.target.value))}
+          />
+          <Button
+            variant="contained"
+            size="small"
+            style={{ marginLeft: 5 }}
+            onClick={increaseNumber}
+          >
+            Increase Number
+          </Button>
+          <Button
+            variant="contained"
+            size="small"
+            style={{ marginLeft: 5 }}
+            onClick={decreaseNumber}
+          >
+            Decrease Number
+          </Button>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", marginTop: 20 }}>
           <Switch checked={hasComma} onChange={(_, checked) => setHasComma(checked)} />{" "}
           Comma
         </div>
-        <div style={{ marginTop: 10 }}>
+        <div style={{ marginTop: 20 }}>
           <TextField
             type="number"
             value={size}
@@ -67,7 +81,7 @@ export const WithController = () => {
             onChange={(e) => setSize(Number(e.target.value))}
           />
         </div>
-        <div style={{ marginTop: 10 }}>
+        <div style={{ marginTop: 20 }}>
           <TextField
             type="number"
             value={duration}

@@ -4,14 +4,14 @@ import AnimatedNumberItem from "./AnimatedNumberItem";
 
 export interface AnimatedNumberProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  number: number;
+  value: number;
   size: number;
   hasComma?: boolean;
   duration?: number;
 }
 
 const AnimatedNumber = ({
-  number,
+  value,
   size,
   hasComma,
   duration,
@@ -20,8 +20,8 @@ const AnimatedNumber = ({
   ...restProps
 }: AnimatedNumberProps) => {
   const numberArray = useMemo(() => {
-    return String(number).split("");
-  }, [number]);
+    return String(value).split("");
+  }, [value]);
 
   return (
     <div
