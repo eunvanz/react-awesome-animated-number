@@ -1,0 +1,26 @@
+name: "Publish"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org
+      - name: Auth Github
+        run: git config remote.origin.url 'https://${{secrets.GH_ACCESS_TOKEN}}@github.com/${{github.repository}}'
+      - run: npm install
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
