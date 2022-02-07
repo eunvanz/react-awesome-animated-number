@@ -10,7 +10,7 @@ A React component which animates numbers in elegant way
 
 [Live demo](https://eunvanz.github.io/react-awesome-animated-number/iframe.html?id=components-animatednumber--with-controller&args=&viewMode=story)
 
-## Code
+### Example Code
 
 ```typescript
 import { useCallback, useState } from "react";
@@ -98,12 +98,13 @@ export const WithController = () => {
 
 # Props
 
-| name     |   type    | required | default | description                  |
-| -------- | :-------: | :------: | :-----: | ---------------------------- |
-| value    | `number`  |    O     |         | Number to animate            |
-| size     | `number`  |          |  `14`   | Font size of number in `px`  |
-| hasComma | `boolean` |          | `false` | Set `true` for locale string |
-| duration | `number`  |          |  `200`  | Animation duration in `ms`   |
+| name      |       type        | required | default | description                    |
+| --------- | :---------------: | :------: | :-----: | ------------------------------ |
+| value     |     `number`      |    O     |         | Number to animate              |
+| size      |     `number`      |          |  `14`   | Font size of number in `px`    |
+| hasComma  |     `boolean`     |          | `false` | Set `true` for locale string   |
+| duration  |     `number`      |          |  `200`  | Animation duration in `ms`     |
+| direction | `"asc"`, `"desc"` |          | `"asc"` | Sort of numbers for each digit |
 
 # Contributions
 
