@@ -98,13 +98,13 @@ export const WithController = () => {
 
 # Props
 
-| name      |       type        | required | default | description                    |
-| --------- | :---------------: | :------: | :-----: | ------------------------------ |
-| value     |     `number`      |    O     |         | Number to animate              |
-| size      |     `number`      |          |  `14`   | Font size of number in `px`    |
-| hasComma  |     `boolean`     |          | `false` | Set `true` for locale string   |
-| duration  |     `number`      |          |  `200`  | Animation duration in `ms`     |
-| direction | `"asc"`, `"desc"` |          | `"asc"` | Sort of numbers for each digit |
+| name     |       type        | required | default | description                     |
+| -------- | :---------------: | :------: | :-----: | ------------------------------- |
+| value    |     `number`      |    O     |         | Number to animate               |
+| size     |     `number`      |          |  `14`   | Font size of number in `px`     |
+| hasComma |     `boolean`     |          | `false` | Set `true` for locale string    |
+| duration |     `number`      |          |  `200`  | Animation duration in `ms`      |
+| order    | `"asc"`, `"desc"` |          | `"asc"` | Order of numbers for each digit |
 
 # Contributions
 

@@ -5,14 +5,14 @@ export interface AnimatedNumberItemProps {
   number: number;
   size: number;
   duration?: number;
-  direction?: "asc" | "desc";
+  order?: "asc" | "desc";
 }
 
 const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
   number,
   size,
   duration = 200,
-  direction = "asc",
+  order = "asc",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -26,10 +26,10 @@ const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
     const $numberWrapper = numberWrapperRef.current;
     if ($numberWrapper) {
       $numberWrapper.style.transform = `translateY(${
-        size * (direction === "desc" ? 9 - currentIndex : currentIndex) * -1
+        size * (order === "desc" ? 9 - currentIndex : currentIndex) * -1
       }px)`;
     }
-  }, [currentIndex, size, direction]);
+  }, [currentIndex, size, order]);
 
   return (
     <div className="AnimatedNumberItem" style={{ height: size }}>
@@ -47,7 +47,7 @@ const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
               height: size,
             }}
           >
-            {direction === "desc" ? 9 - number : number}
+            {order === "desc" ? 9 - number : number}
           </div>
         ))}
       </div>
