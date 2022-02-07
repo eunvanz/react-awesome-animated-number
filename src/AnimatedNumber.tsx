@@ -8,6 +8,7 @@ export interface AnimatedNumberProps
   size?: number;
   hasComma?: boolean;
   duration?: number;
+  direction?: "asc" | "desc";
 }
 
 const AnimatedNumber = ({
@@ -17,6 +18,7 @@ const AnimatedNumber = ({
   duration = 200,
   style,
   className,
+  direction = "asc",
   ...restProps
 }: AnimatedNumberProps) => {
   const numberArray = useMemo(() => {
@@ -82,6 +84,7 @@ const AnimatedNumber = ({
                 number={Number(number)}
                 size={size}
                 duration={duration}
+                direction={direction}
               />
             )}
           </Fragment>
