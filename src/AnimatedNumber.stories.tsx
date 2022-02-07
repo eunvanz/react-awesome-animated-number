@@ -1,5 +1,17 @@
 import { useCallback, useState } from "react";
-import { Box, Button, Switch, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  Switch,
+  TextField,
+} from "@mui/material";
 import type { ComponentStory, ComponentMeta } from "@storybook/react";
 import { random } from "lodash-es";
 import AnimatedNumber from "./AnimatedNumber";
@@ -11,6 +23,7 @@ export default {
     value: 31290827,
     size: 20,
     duration: 200,
+    order: "asc",
   },
 } as ComponentMeta<typeof AnimatedNumber>;
 
@@ -25,6 +38,7 @@ export const WithController = () => {
   const [hasComma, setHasComma] = useState(true);
   const [size, setSize] = useState(28);
   const [duration, setDuration] = useState(200);
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
 
   const increaseNumber = useCallback(() => {
     setNumber((number) => number + random(0, 100000000));
@@ -41,6 +55,7 @@ export const WithController = () => {
         hasComma={hasComma}
         size={size}
         duration={duration}
+        order={order}
       />
       <Box sx={{ mt: 4 }}>
         <Box sx={{ display: "flex", mt: 2 }}>
@@ -89,6 +104,19 @@ export const WithController = () => {
             label="Duration"
             onChange={(e) => setDuration(Number(e.target.value))}
           />
+        </Box>
+        <Box sx={{ mt: 2 }}>
+          <FormControl>
+            <FormLabel>Order</FormLabel>
+            <RadioGroup
+              row
+              value={order}
+              onChange={(e) => setOrder(e.target.value as "asc" | "desc")}
+            >
+              <FormControlLabel value="asc" control={<Radio />} label="Ascending" />
+              <FormControlLabel value="desc" control={<Radio />} label="Descending" />
+            </RadioGroup>
+          </FormControl>
         </Box>
       </Box>
     </>
