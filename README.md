@@ -18,7 +18,7 @@ import { Button, Box, Switch, TextField } from "@mui/material";
 import { random } from "lodash-es";
 
 import AnimatedNumber from "react-awesome-animated-number";
-import "react-awesome-animated-number/dist/index/css";
+import "react-awesome-animated-number/dist/index.css";
 
 export const WithController = () => {
   const [number, setNumber] = useState(random(0, 100000000));
