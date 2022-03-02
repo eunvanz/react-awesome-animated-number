@@ -22,7 +22,7 @@ const AnimatedNumber = ({
   ...restProps
 }: AnimatedNumberProps) => {
   const numberArray = useMemo(() => {
-    return String(value).split("");
+    return String(value).split("").reverse();
   }, [value]);
 
   const isMinus = useMemo(() => {
@@ -52,7 +52,7 @@ const AnimatedNumber = ({
         const isCommaNeeded =
           hasComma &&
           isInt &&
-          (numberArray.length - decimalLength - index) % 3 === 0 &&
+          (decimalLength + index) % 3 === 0 &&
           index !== 0 &&
           (isMinus ? index !== 1 : true);
 
