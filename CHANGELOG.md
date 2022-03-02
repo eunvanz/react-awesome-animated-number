@@ -1,3 +1,7 @@
+# 1.0.6 (2022-03-02)
+
+- change `flex-direction` of numbers to `row-reverse`
+
 # 1.0.5 (2022-02-28)
 
 - fix README
