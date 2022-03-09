@@ -100,7 +100,7 @@ export const WithController = () => {
 
 ## Timer
 
-[Demo](https://eunvanz.github.io/react-awesome-animated-number/iframe.html?id=components-animatednumber--timer)
+[Demo](https://eunvanz.github.io/react-awesome-animated-number/?path=/story/components-animatednumber--timer)
 
 ### Code
 
