@@ -1,3 +1,8 @@
+# 1.0.7 (2022-03-09)
+
+- add `minDigits` prop
+- add Timer example
+
 # 1.0.6 (2022-03-02)
 
 - change `flex-direction` of numbers to `row-reverse`
