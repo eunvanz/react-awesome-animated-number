@@ -1,3 +1,7 @@
+# 1.0.8 (2022-03-09)
+
+- fix README
+
 # 1.0.7 (2022-03-09)
 
 - add `minDigits` prop
