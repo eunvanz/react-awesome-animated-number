@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -118,5 +118,35 @@ export const WithController = () => {
         </Box>
       </Box>
     </>
+  );
+};
+
+export const Timer = () => {
+  const [currentTime, setCurrentTime] = useState(1000 * 60 * 60 * 10 + 10 * 1000);
+
+  const timerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    timerRef.current = window.setInterval(() => {
+      setCurrentTime((currentTime) => currentTime - 1000);
+    }, 1000);
+    return () => {
+      window.clearInterval(timerRef.current);
+    };
+  }, []);
+
+  const { hours, minutes, seconds } = useMemo(() => {
+    const hours = Math.floor(currentTime / 1000 / 60 / 60);
+    const minutes = Math.floor((currentTime / 1000 / 60) % 60);
+    const seconds = Math.floor((currentTime / 1000) % 60);
+    return { hours, minutes, seconds };
+  }, [currentTime]);
+
+  return (
+    <div style={{ fontSize: 40 }}>
+      <AnimatedNumber size={40} value={hours} minDigits={2} /> :{" "}
+      <AnimatedNumber size={40} value={minutes} minDigits={2} /> :{" "}
+      <AnimatedNumber size={40} value={seconds} minDigits={2} />
+    </div>
   );
 };
