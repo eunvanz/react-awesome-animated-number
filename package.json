@@ -1,6 +1,6 @@
 {
   "name": "react-awesome-animated-number",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An elegant animated number react component",
   "source": "src/index.ts",
   "module": "dist/index.esm.js",
