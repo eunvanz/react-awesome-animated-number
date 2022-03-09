@@ -8,9 +8,11 @@ A React component which animates numbers in elegant way
 
 # Live demo
 
-[Live demo](https://eunvanz.github.io/react-awesome-animated-number/iframe.html?id=components-animatednumber--with-controller&args=&viewMode=story)
+## Controlled number
 
-### Example Code
+[Demo](https://eunvanz.github.io/react-awesome-animated-number/iframe.html?id=components-animatednumber--with-controller&args=&viewMode=story)
+
+### Code
 
 ```typescript
 import { useCallback, useState } from "react";
@@ -96,15 +98,59 @@ export const WithController = () => {
 };
 ```
 
+## Timer
+
+[Demo](https://eunvanz.github.io/react-awesome-animated-number/iframe.html?id=components-animatednumber--timer)
+
+### Code
+
+```typescript
+import { useEffect, useMemo, useRef, useState } from "react";
+
+import AnimatedNumber from "./AnimatedNumber";
+import "react-awesome-animated-number/dist/index.css";
+
+export const Timer = () => {
+  const [currentTime, setCurrentTime] = useState(1000 * 60 * 60 * 10 + 10 * 1000);
+
+  const timerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    timerRef.current = window.setInterval(() => {
+      setCurrentTime((currentTime) => currentTime - 1000);
+    }, 1000);
+    return () => {
+      window.clearInterval(timerRef.current);
+    };
+  }, []);
+
+  const { hours, minutes, seconds } = useMemo(() => {
+    const hours = Math.floor(currentTime / 1000 / 60 / 60);
+    const minutes = Math.floor((currentTime / 1000 / 60) % 60);
+    const seconds = Math.floor((currentTime / 1000) % 60);
+    return { hours, minutes, seconds };
+  }, [currentTime]);
+
+  return (
+    <div style={{ fontSize: 40 }}>
+      <AnimatedNumber size={40} value={hours} minDigits={2} /> :{" "}
+      <AnimatedNumber size={40} value={minutes} minDigits={2} /> :{" "}
+      <AnimatedNumber size={40} value={seconds} minDigits={2} />
+    </div>
+  );
+};
+```
+
 # Props
 
-| name     |       type        | required | default | description                     |
-| -------- | :---------------: | :------: | :-----: | ------------------------------- |
-| value    |     `number`      |    O     |         | Number to animate               |
-| size     |     `number`      |          |  `14`   | Font size of number in `px`     |
-| hasComma |     `boolean`     |          | `false` | Set `true` for locale string    |
-| duration |     `number`      |          |  `200`  | Animation duration in `ms`      |
-| order    | `"asc"`, `"desc"` |          | `"asc"` | Order of numbers for each digit |
+| name      |       type        | required |   default   | description                                                            |
+| --------- | :---------------: | :------: | :---------: | ---------------------------------------------------------------------- |
+| value     |     `number`      |    O     |             | Number to animate                                                      |
+| size      |     `number`      |          |    `14`     | Font size of number in `px`                                            |
+| hasComma  |     `boolean`     |          |   `false`   | Set `true` for locale string                                           |
+| duration  |     `number`      |          |    `200`    | Animation duration in `ms`                                             |
+| order     | `"asc"`, `"desc"` |          |   `"asc"`   | Order of numbers for each digit                                        |
+| minDigits |     `number`      |          | `undefined` | Minimum number of digits to show(`0` will be padded to number as this) |
 
 # Contributions
 
