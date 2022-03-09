@@ -9,6 +9,7 @@ export interface AnimatedNumberProps
   hasComma?: boolean;
   duration?: number;
   order?: "asc" | "desc";
+  minDigits?: number;
 }
 
 const AnimatedNumber = ({
@@ -19,11 +20,19 @@ const AnimatedNumber = ({
   style,
   className,
   order = "asc",
+  minDigits,
   ...restProps
 }: AnimatedNumberProps) => {
   const numberArray = useMemo(() => {
-    return String(value).split("").reverse();
-  }, [value]);
+    const reversedNumberArray = String(value).split("").reverse();
+    if (typeof minDigits === "number" && reversedNumberArray.length < minDigits) {
+      const lackOfDigits = minDigits - reversedNumberArray.length;
+      Array.from({ length: lackOfDigits }).forEach(() => {
+        reversedNumberArray.push("0");
+      });
+    }
+    return reversedNumberArray;
+  }, [value, minDigits]);
 
   const isMinus = useMemo(() => {
     return numberArray[0] === "-";
