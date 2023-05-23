@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 import "./AnimatedNumberItem.scss";
 
 export interface AnimatedNumberItemProps {
@@ -27,9 +27,11 @@ const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
     const $numberWrapper = numberWrapperRef.current;
     if ($numberWrapper) {
       requestAnimationFrame(() => {
-          setTransformStyle({
-              transform: `translateY(${size * (order === "desc" ? 9 - currentIndex : currentIndex) * -1}px)`
-          });
+        setTransformStyle({
+          transform: `translateY(${
+            size * (order === "desc" ? 9 - currentIndex : currentIndex) * -1
+          }px)`,
+        });
       });
     }
   }, [currentIndex, size, order]);
