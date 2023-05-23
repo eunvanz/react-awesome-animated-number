@@ -15,6 +15,7 @@ const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
   order = "asc",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [transformStyle, setTransformStyle] = useState<CSSProperties>({});
 
   const numberWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -25,9 +26,11 @@ const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
   useEffect(() => {
     const $numberWrapper = numberWrapperRef.current;
     if ($numberWrapper) {
-      $numberWrapper.style.transform = `translateY(${
-        size * (order === "desc" ? 9 - currentIndex : currentIndex) * -1
-      }px)`;
+      requestAnimationFrame(() => {
+          setTransformStyle({
+              transform: `translateY(${size * (order === "desc" ? 9 - currentIndex : currentIndex) * -1}px)`
+          });
+      });
     }
   }, [currentIndex, size, order]);
 
@@ -36,7 +39,7 @@ const AnimatedNumberItem: React.FC<AnimatedNumberItemProps> = ({
       <div
         ref={numberWrapperRef}
         className="AnimatedNumberItem__wrapper"
-        style={{ transitionDuration: `${duration}ms` }}
+        style={{ transitionDuration: `${duration}ms`, ...transformStyle }}
       >
         {Array.from({ length: 10 }).map((_, number) => (
           <div
