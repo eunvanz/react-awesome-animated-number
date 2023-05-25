@@ -1,3 +1,7 @@
+# 1.0.12 (2023-05-25)
+
+- improve transition animation logic
+
 # 1.0.9 (2022-03-09)
 
 - fix Timer demo link on README
