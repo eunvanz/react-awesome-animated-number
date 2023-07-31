@@ -35,7 +35,7 @@ const AnimatedNumber = ({
   }, [value, minDigits]);
 
   const isMinus = useMemo(() => {
-    return numberArray[0] === "-";
+    return numberArray[numberArray.length - 1] === "-";
   }, [numberArray]);
 
   const decimalPointIndex = useMemo(() => {
@@ -43,7 +43,7 @@ const AnimatedNumber = ({
   }, [numberArray]);
 
   const decimalLength = useMemo(() => {
-    return decimalPointIndex > -1 ? numberArray.length - decimalPointIndex : 0;
+    return decimalPointIndex > -1 ? decimalPointIndex : 0;
   }, [numberArray, decimalPointIndex]);
 
   return (
@@ -57,13 +57,14 @@ const AnimatedNumber = ({
       {...restProps}
     >
       {numberArray.map((number, index) => {
-        const isInt = decimalLength ? index < decimalPointIndex : true;
+        const isInt = decimalLength ? index > decimalPointIndex : true;
+        const intIndex = decimalLength ? index - decimalLength - 1 : index;
         const isCommaNeeded =
           hasComma &&
           isInt &&
-          (decimalLength + index) % 3 === 0 &&
-          index !== 0 &&
-          (isMinus ? index !== 1 : true);
+          intIndex % 3 === 0 &&
+          intIndex !== 0 &&
+          (isMinus ? index !== numberArray.length - 1 : true);
 
         return (
           <Fragment key={index}>
