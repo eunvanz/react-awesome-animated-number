@@ -1,7 +1,10 @@
-# 1.0.12 (2023-07-31)
+# 1.0.13 (2023-07-31)
+
+- correct wrong comma position
+
+# 1.0.12 (2023-05-25)
 
 - improve transition animation logic
-- correct wrong comma position
 
 # 1.0.9 (2022-03-09)
 
